@@ -12,6 +12,7 @@ var Todo       = require('./models/todo.js');
 //connect to mongo db
 mongoose.connect('mongodb://localhost/todosdb');
 
+//create 1 Todo item in db
 var todo1 = new Todo({
   text: "Milk",
 	done: true
