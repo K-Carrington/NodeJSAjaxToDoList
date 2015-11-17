@@ -10,8 +10,8 @@ todoSchema.methods.info = function(){
 }
 
 //Todo is a collection in the db
-var Todo = mongoose.model('Todo', userSchema);
+var Todo = mongoose.model('Todo', todoSchema);
 
 //Make this model accesible to the controller
-//Instantiate it for this file 
+//Instantiate it for this file
 module.exports = Todo; //this is the above collection in the db
