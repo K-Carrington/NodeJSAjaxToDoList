@@ -1,0 +1,28 @@
+{
+  "name": "node_js_ajax_to_do_list",
+  "version": "1.0.0",
+  "description": "Assignment for 11/17/15: Use week 2, day 3 todo to build a list back end data table: text String, done: boolean Follow a style guide. Have controllers(server.js ~19 lines), models and routes folder… /api/todos And public folder for week 2’s front end + app.js Make AJAX requests to own api 1. [poss, if new front end, wireframe] 2. Use github (create repo, everyone forkes & branches) 3. make assignments",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omgunis/NodeJSAjaxToDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omgunis/NodeJSAjaxToDoList/issues"
+  },
+  "homepage": "https://github.com/omgunis/NodeJSAjaxToDoList#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-ejs-layouts": "^2.0.0",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.6.1"
+  }
+}
