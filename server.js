@@ -11,7 +11,7 @@ var todoRoutes = require('./routes/todo_routes.js');
 //connect to mongo db
 mongoose.connect('mongodb://localhost/todosdb');
 
-app.get('/', todoRoutes);
+app.get('/api/todos', todoRoutes);
 
 app.listen(port, function(){
   console.log('Listening on port ' + port);
