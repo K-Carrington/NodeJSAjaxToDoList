@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 //creates todo schema
 var todoSchema = new mongoose.Schema({
-	text: String,
+	text: String,//possible merge conflict?
 	done: Boolean
 });
 todoSchema.methods.info = function(){
