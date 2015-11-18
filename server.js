@@ -1,8 +1,7 @@
 var express    = require('express');
 var app        = express();
 var mongoose   = require('mongoose');
-var ejs        = require('ejs');
-var ejsLayotus = require('express-ejs-layouts');
+
 var bodyParser = require('body-parser');
 var logger     = require('morgan');
 var port       = process.env.PORT || 3000;
@@ -11,7 +10,8 @@ var Todo       = require('./models/todo.js');
 
 //connect to mongo db
 mongoose.connect('mongodb://localhost/todosdb');
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extnded: false}))
 //create 1 Todo item in db
 var todo1 = new Todo({
   text: "Milk",
