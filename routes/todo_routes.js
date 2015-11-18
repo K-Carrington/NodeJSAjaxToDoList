@@ -7,7 +7,7 @@ todoRoutes.route('/api/todos')
   .post(todoController.create);
 
 todoRoutes.route('/:text')
-  .get(toController.show)
+  .get(todoController.show)
   .patch(todoController.update)
   .delete(todoController.destroy);
 
