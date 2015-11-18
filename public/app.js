@@ -1,8 +1,10 @@
 //initializing global variables
 //gave $ to remember its a jQuery object
+console.log('1');
 var $remove = $(".glyphicon-remove");
 var $star = $(".glyphicon-star");
 var $checkbox = $(".checkBox");
+console.log('2');
 
 //removes list item when x button is clicked
 //moving from one element to another is traversing
@@ -29,6 +31,7 @@ function strikeParent(){
     //TBD update DB to toggle the done boolean variable
   });
 }
+console.log('3');
 
 //event listeners
 $(".glyphicon-remove").each(removeParent);
@@ -41,6 +44,8 @@ $(".btn").on('click', function(){
   console.log('add button pressed');
   $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"+$('#todo').val()+"</span><i class='glyphicon glyphicon-remove'></i></p>");
   // Put in DB via a jQuery ajax request
+  console.log('4');
+
   $.ajax({
           url: '/api/todos',
           method: 'POST',
@@ -50,6 +55,9 @@ $(".btn").on('click', function(){
             console.log(todo);
           }
   });
+
+  console.log('5');
+
   $('#todo').val('');
   $remove = $(".glyphicon-remove");
   $star = $(".glyphicon-star");
@@ -58,9 +66,10 @@ $(".btn").on('click', function(){
   $(".glyphicon-star").each(starParent);
   $(".checkBox").each(strikeParent);
 }); //on click
+console.log('6');
 
   // Load all items from the database for initial display
-  $.ajax({ 
+  $.ajax({
       url: '/api/todos',
       method: 'GET',
       success: function(todos){
@@ -74,12 +83,7 @@ $(".btn").on('click', function(){
           if (t.done) {
             checked = 'checked';
           }
-          var t_list_item = '<p class="item">
-            <input type="checkbox" class="checkBox"' + checked '>
-            <i class="glyphicon glyphicon-star"></i>
-            <span>' + t.text + '</span>
-            <i class="glyphicon glyphicon-remove">' + editTodo + '</i>
-            </p>';
+          var t_list_item = '<p class="item"><input type="checkbox" class="checkBox"' + checked '><i class="glyphicon glyphicon-star"></i><span>' + t.text + '</span><i class="glyphicon glyphicon-remove">' + editTodo + '</i></p>';
            $('.list').append(t_list_item);
            if (t.done) {
             //TBD turn on strikeThrough
@@ -87,17 +91,19 @@ $(".btn").on('click', function(){
 
             }
         });
-        
+        console.log('7');
+
         // button and callback UI to edit a todo
         $('.edit-todo').on('click', function(evt) {
           console.log('Bring up edit UI here')
           console.log(evt.target.id);
-            //TBD UI to edit the todo, then need a button and 
+            //TBD UI to edit the todo, then need a button and
             // a callback with an ajax
         });
 
       } //success function
   }); //ajax
+  console.log('8');
 
 //Andy's code for changing the star color:
 //
