@@ -4,7 +4,7 @@ var mongoose   = require('mongoose');
 var ejs        = require('ejs');
 var ejsLayotus = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
-var morgan     = require('morgan');
+var logger     = require('morgan');
 var port       = process.env.PORT || 3000;
 var todoRoutes = require('./routes/todo_routes.js');
 var Todo       = require('./models/todo.js');
@@ -23,6 +23,8 @@ todo1.save(function(err){
 });
 
 app.use('/', todoRoutes);
+
+//Static page, root route shows index.html
 app.use(express.static('public'))
 
 app.listen(port, function(){
