@@ -1,3 +1,4 @@
+$(function(){
 //initializing global variables
 //gave $ to remember its a jQuery object
 console.log('1');
@@ -42,15 +43,17 @@ $(".checkBox").each(strikeParent);
 //made callback functions to include the new items created into array
 $(".btn").on('click', function(){
   console.log('add button pressed');
-  $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"+$('#todo').val()+"</span><i class='glyphicon glyphicon-remove'></i></p>");
+  $(".list").append("<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"
+      +$('#todo').val()
+      +"</span><i class='glyphicon glyphicon-remove'></i></p>");
   // Put in DB via a jQuery ajax request
   console.log('4');
 
   $.ajax({
           url: '/api/todos',
           method: 'POST',
-          data: { text: $('#todo').val()},
-          dataType: 'application/json',
+          data: JSON.stringify({ text: $('#todo').val()}),
+          contentType: 'application/json',
           success: function(todo){
             console.log(todo);
           }
@@ -83,7 +86,15 @@ console.log('6');
           if (t.done) {
             checked = 'checked';
           }
-          var t_list_item = '<p class="item"><input type="checkbox" class="checkBox"' + checked '><i class="glyphicon glyphicon-star"></i><span>' + t.text + '</span><i class="glyphicon glyphicon-remove">' + editTodo + '</i></p>';
+          var t_list_item = "<p class='item'><input type='checkbox' class='checkBox' " 
+          + "><i class='glyphicon glyphicon-star'></i><span>" 
+          + t.text + "</span><i class='glyphicon glyphicon-remove'>" 
+          + editTodo + "</i></p>";
+         
+          "<p class='item'><input type='checkbox' class='checkBox'><i class='glyphicon glyphicon-star'></i><span>"
+          +$('#todo').val()
+          +"</span><i class='glyphicon glyphicon-remove'></i></p>"
+         
            $('.list').append(t_list_item);
            if (t.done) {
             //TBD turn on strikeThrough
@@ -112,3 +123,7 @@ console.log('6');
 //   $(this).toggleClass('active');
 // }
 // $stars.click(colorStar);
+
+})
+
+
