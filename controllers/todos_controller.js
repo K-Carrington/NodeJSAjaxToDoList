@@ -10,11 +10,7 @@ function index(req, res) {
 function create(req, res) {
   var todo = new Todo();
   todo.text = req.body.text;
-<<<<<<< HEAD
-  todo.boolean = req.body.boolean;
-=======
   todo.done = req.body.done;
->>>>>>> 377055b048612119c80da16cc798d296de50441b
 
   todo.save(function(err) {
     if (err) throw err;
